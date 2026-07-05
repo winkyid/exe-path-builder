@@ -3,7 +3,7 @@ name: Build Launcher EXE
 on:
   push:
     branches: [ main ]
-  workflow_dispatch: # Memungkinkan Anda menjalankan build secara manual kapan saja
+  workflow_dispatch: 
 
 jobs:
   build:
@@ -20,7 +20,7 @@ jobs:
         cl.exe /O2 /MT main.cpp /link user32.lib shell32.lib /SUBSYSTEM:WINDOWS /OUT:PeluncurAplikasi.exe
 
     - name: Upload EXE Artifact
-      uses: actions/artifacts@v4
+      uses: actions/upload-artifact@v4
       with:
         name: Peluncur-EXE-Selesai
         path: PeluncurAplikasi.exe
